@@ -41,9 +41,8 @@ export default function CreatorDashboard() {
       const items = await Promise.all(data.map(async i => {
         const tokenUri = await tokenContract.tokenURI(i.tokenId)
         const meta = await axios.get(tokenUri)
-        let price = ethers.utils.formatUnits(i.price.toString(), 'ether')
         let item = {
-          price,
+          name: meta.data.name,
           tokenId: i.tokenId.toNumber(),
           seller: i.seller,
           owner: i.owner,
@@ -55,7 +54,7 @@ export default function CreatorDashboard() {
       /* create a filtered array of items that have been sold */
       const soldItems = items.filter(i => i.sold)
       setSold(soldItems)
-      setNfts(items)
+      setNfts(items.concat().reverse())
       setLoadingState('loaded') 
     }
     if (loadingState === 'loaded' && !nfts.length) return (<StorageHeader/>)
@@ -63,20 +62,30 @@ export default function CreatorDashboard() {
       <div>
         <div className="p-4">
           <StorageHeader/>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-5 pt-5 flex items-end">
-            {
+          </div>
+          <div>
+          <div className="px-4 flex justify-center" style={{ maxWidth: '4000px', maxHeight: '4000px' }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-5 pt-5 flex items-end">
+           {
               nfts.map((nft, i) => (
-                <div key={i} className="border shadow rounded-xl overflow-hidden">
-                  <img src={nft.image} className="rounded" />
+              <div key={i} className="border shadow rounded-xl overflow-hidden">
+                <button onclick="location.href='page'">
+                  
+                <img src={nft.image} onclick="(()=>window.open(this.getAttribute('href'),'_blank'))()" onerror="if (this.src != 'error.jpg') this.src = 'error.jpg';" alt="NO IMAGE" width="350" height="250"/>
+                <div className="p-4">
+                <p style={{ height: '32px' }} className="text-2xl font-semibold">{nft.name}</p>
                 </div>
+                </button>
+              </div>
               ))
             }
           </div>
-        </div>
-        <Footer/>
+          </div>
+      </div>
       </div>
     )
   }
+
   // export async function getServerSideProps({ req }) {
   //   const { user } = await supabase.auth.api.getUserByCookie(req)
   

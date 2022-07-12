@@ -16,7 +16,7 @@ import ULTRAJAGUARCloud from '../artifacts/contracts/ULTRAJAGUARCloud.sol/ULTRAJ
 
 export default function CreateItem() {
   const [fileUrl, setFileUrl] = useState(null)
-  const [formInput, updateFormInput] = useState({ price: '', name: '', description: '' })
+  const [formInput, updateFormInput] = useState({ name: '', description: '' })
   const router = useRouter()
 
   async function onChange(e) {
@@ -35,8 +35,8 @@ export default function CreateItem() {
     }  
   }
   async function createMarket() {
-    const { name, description, price } = formInput
-    if (!name || !description || !price || !fileUrl) return
+    const { name, description } = formInput
+    if (!name || !description || !fileUrl) return
     /* first, upload to IPFS */
     const data = JSON.stringify({
       name, description, image: fileUrl
@@ -64,17 +64,13 @@ export default function CreateItem() {
     let event = tx.events[0]
     let value = event.args[2]
     let tokenId = value.toNumber()
-
-    const price = ethers.utils.parseUnits(formInput.price, 'ether')
   
     /* then list the item for sale on the marketplace */
     contract = new ethers.Contract(ultrajaguarCloudaddress, ULTRAJAGUARCloud.abi, signer)
-    let listingPrice = await contract.getListingPrice()
-    listingPrice = listingPrice.toString()
 
-    transaction = await contract.createMarketItem(ultrajaguaraddress, tokenId, price, { value: listingPrice })
+    transaction = await contract.createMarketItem(ultrajaguaraddress, tokenId)
     await transaction.wait()
-    router.push('/jaguar-storage')
+    router.push('/crypto-jaguar')
   }
 
   return (
@@ -83,19 +79,14 @@ export default function CreateItem() {
       <p className="text-1xl italic">For the safety of your copyright work and best practices
         please provide your full name, date, address, social media and if possible sign your Pik in the description.</p>
         <input 
-          placeholder="Pik Name"
+          placeholder="Document Name"
           className="mt-8 border rounded p-4"
           onChange={e => updateFormInput({ ...formInput, name: e.target.value })}
         />
         <textarea
-          placeholder="Pik Description"
+          placeholder="Document Description"
           className="mt-2 border rounded p-4"
           onChange={e => updateFormInput({ ...formInput, description: e.target.value })}
-        />
-        <input
-          placeholder="Pik Price in xDai"
-          className="mt-2 border rounded p-4"
-          onChange={e => updateFormInput({ ...formInput, price: e.target.value })}
         />
         <input
           type="file"
