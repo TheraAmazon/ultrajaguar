@@ -14,7 +14,7 @@ export default function Home() {
     event.preventDefault();
     const term = searchInputRef.current.value;
     if (!term.trim()) return;
-    router.push(`/search?term=${term.trim()}&searchType=`);
+    router.push(`/search?query=${term.trim()}`);
   }
   async function randomSearch(event) {
     event.preventDefault();
@@ -22,9 +22,9 @@ export default function Home() {
       "https://random-word-api.herokuapp.com/word?number=1"
     ).then((response) => response.json());
     if (!randomTerm) return;
-    router.push(`/search?term=${randomTerm}&searchType=`);
+    router.push(`/search?term=${randomTerm}`);
   }
-  
+
   return (
     <div>
       <Head>
@@ -33,15 +33,15 @@ export default function Home() {
         <link rel="icon" href="/logo.png" />
       </Head>
 
-      <Header/>
+      <Header />
 
       <form className="flex flex-col items-center mt-40">
-        <Image  
-        width="1200"
-        objectFit="cover"
-        height="405"
-        src={UltraJaguar}
-        alt="Teaching humanity and the animals"
+        <Image
+          width="1200"
+          objectFit="cover"
+          height="405"
+          src={UltraJaguar}
+          alt="Teaching humanity and the animals"
         />
         <div className="flex flex-col sm:flex-row w-[50%] space-y-2 mt-8 sm:space-y-0 sm:space-x-4 justify-center text-lg font-bold text-green-500">
           Defending forests through searchs and donations.

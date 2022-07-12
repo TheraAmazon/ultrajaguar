@@ -11,3 +11,19 @@ GAS_REPORT=true npx hardhat test
 npx hardhat node
 npx hardhat run scripts/deploy.js
 ```
+
+# Backend
+
+Start the REST API
+
+```
+cd backend/
+```
+
+then
+
+```
+go run main.go api start
+```
+
+GET http://localhost:8080/search/test | returns search results
