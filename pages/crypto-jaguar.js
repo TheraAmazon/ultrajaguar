@@ -2,13 +2,8 @@ import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from "web3modal"
-import Link from 'next/link'
-import Pagination from "../components/pagination"
-import styles from '../styles/Home.module.css'
-import Image from "next/image";
-import UltraJaguar from "../public/UltraJaguar.png"
 import StorageHeader from "../components/StorageHeader"
-import Footer from "../components/Footer"
+
 
 
 import {
@@ -68,14 +63,11 @@ export default function CreatorDashboard() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-5 pt-5 flex items-end">
            {
               nfts.map((nft, i) => (
-              <div key={i} className="border shadow rounded-xl overflow-hidden">
-                <button onclick="location.href='page'">
-                  
+              <div key={i} className="border shadow rounded-xl overflow-hidden">               
                 <img src={nft.image} onclick="(()=>window.open(this.getAttribute('href'),'_blank'))()" onerror="if (this.src != 'error.jpg') this.src = 'error.jpg';" alt="NO IMAGE" width="350" height="250"/>
                 <div className="p-4">
                 <p style={{ height: '32px' }} className="text-2xl font-semibold">{nft.name}</p>
                 </div>
-                </button>
               </div>
               ))
             }

@@ -30,13 +30,14 @@ export default function StorageHeader() {
           src={UltraJaguar}
           />
       </div>
-      <div className="flex justify-between border border-gray-200 shadow-lg px-6 py-3 ml-10 mr-5 flex-grow max-w-8xl items-center space-x-4">
+      <div className="flex flex-col space-y-3">
+      <div className="flex justify-between border border-gray-200 shadow-lg px-6 py-3 ml-10 mr-5 p-6 flex-grow max-w-8xl items-center space-x-4">
                 <div className="flex w-full items-center">
                 <a className="nav-brand mr-auto ml-0">Welcome to our Blockchain ultra box, to post your crypto documents you will need a wallet and some Xdai. Follow these steps to create your crypto documents!
                 </a>
                 </div>
                 </div>
-         <div className="flex justify-between border border-gray-200 shadow-lg px-6 py-3 ml-10 mr-5 flex-grow max-w-8xl items-center space-x-4">
+         <div className="flex justify-between border border-gray-200 shadow-lg px-6 py-3 ml-10 mr-5 p-6 flex-grow max-w-8xl items-center space-x-4">
          <div className="flex w-full items-center">
                 <Link href="https://metamask.io/download/">
             <a className="mr-2 font-bold text-yellow-600">
@@ -81,7 +82,6 @@ export default function StorageHeader() {
           </Link>
           </div>
           </div>
-          <div>
           </div>
     </header>
   );
