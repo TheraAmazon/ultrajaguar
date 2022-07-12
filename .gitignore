@@ -2,7 +2,6 @@
 
 .secret
 .infuraid
-/scripts/deploy.js
 
 # dependencies
 /node_modules
