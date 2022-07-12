@@ -18,6 +18,6 @@ now with the node running on one terminal, open another and npm run dev
 
 There you go :)
 
-Our search engine needs many API keys but you can still surg the front end no probs :)
+Our search engine needs many API keys but you can still surf the front end no probs :)
 
 Soon we will be updating to Golang and search the web at full speed!
