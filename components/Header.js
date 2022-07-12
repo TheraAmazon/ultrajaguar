@@ -14,9 +14,9 @@ export default function Header() {
           </Link>
         </div>
         <div className="flex space-x-4 items-center">
-          <Link href="https://mail.google.com">
+          {/* <Link href="https://mail.google.com">
             <a className="link">Gmail</a>
-          </Link>
+          </Link> */}
 
           <Link href="/crypto-jaguar">
             <a className="flex space-x-4 items-center">

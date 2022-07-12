@@ -12,7 +12,7 @@ export default function Search({ results }) {
   const router = useRouter();
   return (
     <div>
-      <Head>
+      <Head className="flex w-full p-6 items-center">
         <title>{router.query.term} - Search page</title>
       </Head>
 
