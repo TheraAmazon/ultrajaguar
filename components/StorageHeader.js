@@ -20,24 +20,24 @@ export default function StorageHeader() {
   }
   return (
     <header className="sticky top-0 bg-white">
-      <div className="flex w-full p-6 items-center ">
+      <div className="flex justify-center">
         <Image
           onClick={() => router.push("/")}
-          width="250"
+          width="500"
           objectFit="contain"
-          height="108"
+          height="216"
           className="cursor-pointer"
           src={UltraJaguar}
           />
       </div>
-      <div className="flex flex-col space-y-3">
-      <div className="flex justify-between border border-gray-200 shadow-lg px-6 py-3 ml-10 mr-5 p-6 flex-grow max-w-8xl items-center space-x-4">
+      <div className="flex flex-col space-y-3 px-8">
+      <div className="flex justify-center rounded-lg border border-gray-200 shadow-lg px-6 py-3 p-6 flex-grow max-w-8xl items-center space-x-4">
                 <div className="flex w-full items-center">
-                <a className="nav-brand mr-auto ml-0">Welcome to our Blockchain ultra box, to post your crypto documents you will need a wallet and some Xdai. Follow these steps to create your crypto documents!
+                <a className="mr-2 font-bold">Welcome to our blockchain crypto storage box, to post your crypto documents you will need a wallet and some Xdai. Follow these steps to create your crypto documents!
                 </a>
                 </div>
                 </div>
-         <div className="flex justify-between border border-gray-200 shadow-lg px-6 py-3 ml-10 mr-5 p-6 flex-grow max-w-8xl items-center space-x-4">
+         <div className="flex justify-center rounded-lg border border-gray-200 shadow-lg px-6 py-3 p-6 flex-grow max-w-8xl items-center space-x-4">
          <div className="flex w-full items-center">
                 <Link href="https://metamask.io/download/">
             <a className="mr-2 font-bold text-yellow-600">
@@ -46,7 +46,7 @@ export default function StorageHeader() {
           </Link>
           </div>
           </div>
-          <div className="flex justify-between border border-gray-200 shadow-lg px-6 py-3 ml-10 mr-5 flex-grow max-w-8xl items-center space-x-4">
+          <div className="flex justify-center rounded-lg border border-gray-200 shadow-lg px-6 py-3 flex-grow max-w-8xl items-center space-x-4">
          <div className="flex w-full items-center">
                 <Link href="https://chainlist.org/chain/300">
             <a className="mr-2 font-bold text-blue-600">
@@ -55,7 +55,7 @@ export default function StorageHeader() {
           </Link>
           </div>
                 </div>
-            <div className="flex justify-between border border-gray-200 shadow-lg px-6 py-3 ml-10 mr-5 flex-grow max-w-8xl items-center space-x-4">
+            <div className="flex justify-center rounded-lg border border-gray-200 shadow-lg px-6 py-3 flex-grow max-w-8xl items-center space-x-4">
            <div className="flex w-full items-center">
                 <Link href="https://www.gimlu.com/faucet">
             <a className="mr-2 font-bold text-green-600">
@@ -64,7 +64,7 @@ export default function StorageHeader() {
           </Link>
           </div>
           </div>
-          <div className="flex justify-between border border-gray-200 shadow-lg px-6 py-3 ml-10 mr-5 flex-grow max-w-8xl items-center space-x-4">
+          <div className="flex justify-center rounded-lg border border-gray-200 shadow-lg px-6 py-3 flex-grow max-w-8xl items-center space-x-4">
           <div className="flex w-full items-center">
                 <Link href="/ultra-post">
             <a className="mr-2 font-bold text-red-600">
@@ -73,7 +73,7 @@ export default function StorageHeader() {
           </Link>
           </div>
           </div>
-          <div className="flex justify-center border border-gray-200 shadow-lg px-6 py-3 ml-10 mr-5 flex-grow max-w-8xl items-center space-x-4">
+          <div className="flex justify-center rounded-lg border border-gray-200 shadow-lg px-6 py-3 flex-grow max-w-8xl items-center space-x-4">
           <div className="flex w-full items-center">
                 <Link href="/ultra-post">
             <a className="mr-2 font-bold text-purple-600">

@@ -55,11 +55,11 @@ export default function CreatorDashboard() {
     if (loadingState === 'loaded' && !nfts.length) return (<StorageHeader/>)
     return (
       <div>
-        <div className="p-4">
+        <div>
           <StorageHeader/>
           </div>
           <div>
-          <div className="px-4 flex justify-center" style={{ maxWidth: '4000px', maxHeight: '4000px' }}>
+          <div className="px-8 flex justify-center" style={{ maxWidth: '4000px', maxHeight: '4000px' }}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-5 pt-5 flex items-end">
            {
               nfts.map((nft, i) => (
