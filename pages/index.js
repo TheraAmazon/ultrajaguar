@@ -1,11 +1,14 @@
-import Head from "next/head";
-import Image from "next/image";
-import Header from "../components/Header";
-import UltraJaguar from "../public/UltraJaguar.png";
-import { SearchIcon, MicrophoneIcon } from "@heroicons/react/solid";
-import Footer from "../components/Footer";
-import { useRouter } from "next/router";
-import { useRef } from "react";
+import Head from 'next/head';
+import Image from 'next/image';
+import Header from '../components/Header';
+import UltraJaguar from '../public/UltraJaguar.png';
+import { SearchIcon, MicrophoneIcon } from '@heroicons/react/solid';
+import Footer from '../components/Footer';
+import { useRouter } from 'next/router';
+import { useRef } from 'react';
+import Link from 'next/link';
+import React from 'react';
+import { loadStripe } from '@stripe/stripe-js';
 
 export default function Home() {
   const router = useRouter();
@@ -19,12 +22,25 @@ export default function Home() {
   async function randomSearch(event) {
     event.preventDefault();
     const randomTerm = await fetch(
-      "https://random-word-api.herokuapp.com/word?number=1"
+      'https://random-word-api.herokuapp.com/word?number=1'
     ).then((response) => response.json());
     if (!randomTerm) return;
     router.push(`/search?term=${randomTerm}&searchType=`);
   }
-  
+  React.useEffect(() => {
+    // Check to see if this is a redirect back from Checkout
+    const query = new URLSearchParams(window.location.search);
+    if (query.get('success')) {
+      console.log('Order placed! You will receive an email confirmation.');
+    }
+
+    if (query.get('canceled')) {
+      console.log(
+        'Order canceled -- continue to shop around and checkout when you’re ready.'
+      );
+    }
+  }, []);
+
   return (
     <div>
       <Head>
@@ -33,15 +49,15 @@ export default function Home() {
         <link rel="icon" href="/logo.png" />
       </Head>
 
-      <Header/>
+      <Header />
 
-      <form className="flex flex-col items-center mt-40">
-        <Image  
-        width="1200"
-        objectFit="cover"
-        height="405"
-        src={UltraJaguar}
-        alt="Teaching humanity and the animals"
+      <form className="flex flex-col items-center mt-36">
+        <Image
+          width="1200"
+          objectFit="cover"
+          height="405"
+          src={UltraJaguar}
+          alt="Teaching humanity and the animals"
         />
         <div className="flex flex-col sm:flex-row w-[50%] space-y-2 mt-8 sm:space-y-0 sm:space-x-4 justify-center text-lg font-bold text-green-500">
           Defending forests through searchs and donations.
@@ -55,15 +71,27 @@ export default function Home() {
           />
           <MicrophoneIcon className="h-5 text-green-500 mr-3" />
         </div>
-        <div className="flex flex-col sm:flex-row w-[50%] space-y-2 mt-8 sm:space-y-0 sm:space-x-4 justify-center text-green-500">
+      </form>
+      <div className="flex justify-center p-5 text-md text-green-500 flex space-x-4">
+        <div className="bg-orange-600 px-3 py-5 font-bold text-white rounded rounded-tr-3xl rounded-bl-3xl">
           <button onClick={search} className="btn">
             Ultra Search
           </button>
-          <button onClick={randomSearch} className="btn">
-            Help save the Forests
-          </button>
         </div>
-      </form>
+        <form
+          className="flex flex-col items-center"
+          action="/api/checkout_sessions"
+          method="POST"
+        >
+          <button
+            className="bg-green-600 px-3 py-5 font-bold text-white rounded rounded-tr-3xl rounded-bl-3xl"
+            type="submit"
+            role="link"
+          >
+            Donate and save the Rainforest!
+          </button>
+        </form>
+      </div>
 
       {/* Footer */}
 
