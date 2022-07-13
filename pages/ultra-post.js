@@ -5,6 +5,8 @@ import { useRouter } from 'next/router';
 import Web3Modal from 'web3modal';
 import Link from 'next/link';
 import { Web3Storage } from 'web3.storage';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const client = ipfsHttpClient(
   'https://ipfs.infura.io:5001/api/v0/add?pin=true'
@@ -78,66 +80,77 @@ export default function CreateItem() {
 
     transaction = await contract.createMarketItem(ultrajaguaraddress, tokenId);
     await transaction.wait();
-    router.push('/crypto-storage');
+    router.push('/ultra-storage');
   }
 
   return (
-    <div className="flex justify-center">
-      <div className="w-1/2 flex flex-col pb-12">
-        <p className="text-1xl italic">
-          For the safety of your copyright work provide some infos.
-        </p>
-        <input
-          placeholder="Document Name"
-          className="mt-8 border rounded p-4"
-          onChange={(e) =>
-            updateFormInput({ ...formInput, name: e.target.value })
-          }
-        />
-        <textarea
-          placeholder="Document Description"
-          className="mt-2 border rounded p-4"
-          onChange={(e) =>
-            updateFormInput({ ...formInput, description: e.target.value })
-          }
-        />
-        <input type="file" name="Asset" className="my-4" onChange={onChange} />
-        {fileUrl && <img className="rounded mt-4" width="350" src={fileUrl} />}
-        <p className="text-1xl italic">
-          You will need a wallet funded with xDai to post.
-        </p>
-        <div className="box-content">
-          <div className="aspect-w-2 aspect-h-1 flex justify-center">
-            <iframe
-              src="https://www.youtube.com/embed/HlghEfyI2J8"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+    <form>
+      <Header />
+      <div className="flex justify-center">
+        <div className="w-1/2 flex flex-col pb-6">
+          <p className="text-1xl italic">
+            For the safety of your copyright work provide some infos.
+          </p>
+          <input
+            placeholder="Document Name"
+            className="mt-8 border rounded p-4"
+            onChange={(e) =>
+              updateFormInput({ ...formInput, name: e.target.value })
+            }
+          />
+          <textarea
+            placeholder="Document Description"
+            className="mt-2 border rounded p-4"
+            onChange={(e) =>
+              updateFormInput({ ...formInput, description: e.target.value })
+            }
+          />
+          <input
+            type="file"
+            name="Asset"
+            className="my-4"
+            onChange={onChange}
+          />
+          {fileUrl && (
+            <img className="rounded mt-4" width="350" src={fileUrl} />
+          )}
+          <p className="text-1xl italic">
+            You will need a wallet funded with xDai to post.
+          </p>
+          <div className="box-content">
+            <div className="aspect-w-2 aspect-h-1 flex justify-center">
+              <iframe
+                src="https://www.youtube.com/embed/HlghEfyI2J8"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
+          <div>
+            <Link href="https://add.gnosis.tools/">
+              <a className="mr-2 font-bold text-yellow-600">
+                🦊 Add chain to MetaMask
+              </a>
+            </Link>
+          </div>
+          <div>
+            <Link href="https://www.gimlu.com/faucet">
+              <a className="mr-2 font-bold text-purple-600">
+                Get some Optimistic xDai from the Faucet here
+              </a>
+            </Link>
+          </div>
+          <button
+            onClick={createMarket}
+            className="font-bold mt-4 bg-green-600 text-white rounded p-4 shadow-lg"
+          >
+            Create Post
+          </button>
         </div>
-        <div>
-          <Link href="https://add.gnosis.tools/">
-            <a className="mr-2 font-bold text-yellow-600">
-              🦊 Add chain to MetaMask
-            </a>
-          </Link>
-        </div>
-        <div>
-          <Link href="https://www.gimlu.com/faucet">
-            <a className="mr-2 font-bold text-purple-600">
-              Get some Optimistic xDai from the Faucet here
-            </a>
-          </Link>
-        </div>
-        <button
-          onClick={createMarket}
-          className="font-bold mt-4 bg-green-600 text-white rounded p-4 shadow-lg"
-        >
-          Create Post
-        </button>
       </div>
-    </div>
+      <Footer />
+    </form>
   );
 }
 

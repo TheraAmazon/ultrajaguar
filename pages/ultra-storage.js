@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Web3Modal from 'web3modal';
 import StorageHeader from '../components/StorageHeader';
+import Footer from '../components/Footer';
 
 import { ultrajaguaraddress, ultrajaguarCloudaddress } from '../config';
 
@@ -93,6 +94,7 @@ export default function CreatorDashboard() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

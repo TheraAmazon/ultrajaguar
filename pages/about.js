@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import AboutHeader from '../components/AboutHeader';
+import Header from '../components/Header';
 import UltraJaguar from '../public/UltraJaguar.png';
 import { SearchIcon, MicrophoneIcon } from '@heroicons/react/solid';
 import Footer from '../components/Footer';
@@ -48,13 +48,15 @@ export default function Home() {
         <link rel="icon" href="/logo.png" />
       </Head>
 
-      <AboutHeader />
+      <Header />
 
-      <form className="flex flex-col items-center mt-40">
+      <form className="flex flex-col items-center mt-10">
         <Image
+          onClick={() => router.push('/')}
           width="1200"
           objectFit="cover"
           height="405"
+          className="cursor-pointer"
           src={UltraJaguar}
           alt="Teaching humanity and the animals"
         />
@@ -68,25 +70,25 @@ export default function Home() {
                   </h1>
 
                   <div className="mt-2">
-                    <span className="inline-block w-40 h-1 rounded-full bg-green-500"></span>
-                    <span className="inline-block w-3 h-1 ml-1 rounded-full bg-green-500"></span>
-                    <span className="inline-block w-1 h-1 ml-1 rounded-full bg-green-500"></span>
+                    <span className="inline-block w-40 h-1 rounded-full bg-green-600"></span>
+                    <span className="inline-block w-3 h-1 ml-1 rounded-full bg-green-600"></span>
+                    <span className="inline-block w-1 h-1 ml-1 rounded-full bg-green-600"></span>
                   </div>
                 </div>
 
                 <div className="md:flex md:items-start md:-mx-4">
-                  <span className="inline-block p-2 text-green-500 bg-green-100 rounded-xl md:mx-4 dark:text-white dark:bg-green-500">
+                  <span className="inline-block p-2 text-green-600 bg-green-100 rounded-xl md:mx-4 dark:text-white dark:bg-green-600">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
+                      className="h-6 w-6"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      stroke-width="2"
+                      strokeWidth="2"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                       />
                     </svg>
@@ -107,18 +109,18 @@ export default function Home() {
                 </div>
 
                 <div className="md:flex md:items-start md:-mx-4">
-                  <span className="inline-block p-2 text-green-500 bg-green-100 rounded-xl md:mx-4 dark:text-white dark:bg-green-500">
+                  <span className="inline-block p-2 text-green-600 bg-green-100 rounded-xl md:mx-4 dark:text-white dark:bg-green-600">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
+                      className="h-6 w-6"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      stroke-width="2"
+                      strokeWidth="2"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
@@ -138,18 +140,18 @@ export default function Home() {
                 </div>
 
                 <div className="md:flex md:items-start md:-mx-4">
-                  <span className="inline-block p-2 text-green-500 bg-green-100 rounded-xl md:mx-4 dark:text-white dark:bg-green-500">
+                  <span className="inline-block p-2 text-green-600 bg-green-100 rounded-xl md:mx-4 dark:text-white dark:bg-green-600">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
+                      className="h-6 w-6"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      stroke-width="2"
+                      strokeWidth="2"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"
                       />
                     </svg>
@@ -168,18 +170,18 @@ export default function Home() {
                 </div>
 
                 <div className="md:flex md:items-start md:-mx-4">
-                  <span className="inline-block p-2 text-green-500 bg-green-100 rounded-xl md:mx-4 dark:text-white dark:bg-green-500">
+                  <span className="inline-block p-2 text-green-600 bg-green-100 rounded-xl md:mx-4 dark:text-white dark:bg-green-600">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
+                      className="h-6 w-6"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      stroke-width="2"
+                      strokeWidth="2"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                       />
                     </svg>
@@ -210,13 +212,14 @@ export default function Home() {
         method="POST"
       >
         <button
-          className="bg-green-600 px-10 py-5 font-bold text-white rounded rounded-tr-3xl rounded-bl-3xl"
+          className="bg-green-600 hover:bg-green-700 px-10 py-6 font-bold text-white rounded rounded-tr-2xl rounded-bl-2xl"
           type="submit"
           role="link"
         >
-          Donate and save the Rainforest!
+          Donate and help the Rainforest!
         </button>
       </form>
+      <Footer />
     </div>
   );
 }
