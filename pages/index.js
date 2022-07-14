@@ -42,16 +42,11 @@ export default function Home() {
     }
   }, []);
 
-
   return (
     <div>
       <Header />
 
-
-      <form className="flex flex-col items-center mt-40">
-
       <form className="flex flex-col items-center mt-36">
-
         <Image
           width="1200"
           objectFit="cover"
