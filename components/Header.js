@@ -29,7 +29,7 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link href="/ultra-storage">
+              <Link href="https://www.pikblock.com/">
                 <a className="link">PikBlock</a>
               </Link>
             </li>
