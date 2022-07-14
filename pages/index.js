@@ -17,7 +17,7 @@ export default function Home() {
     event.preventDefault();
     const term = searchInputRef.current.value;
     if (!term.trim()) return;
-    router.push(`/search?term=${term.trim()}&searchType=`);
+    router.push(`/search?query=${term.trim()}`);
   }
   async function randomSearch(event) {
     event.preventDefault();
@@ -25,8 +25,9 @@ export default function Home() {
       'https://random-word-api.herokuapp.com/word?number=1'
     ).then((response) => response.json());
     if (!randomTerm) return;
-    router.push(`/search?term=${randomTerm}&searchType=`);
+    router.push(`/search?term=${randomTerm}`);
   }
+
   React.useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
@@ -41,6 +42,7 @@ export default function Home() {
     }
   }, []);
 
+
   return (
     <div>
       <Head>
@@ -51,7 +53,11 @@ export default function Home() {
 
       <Header />
 
+
+      <form className="flex flex-col items-center mt-40">
+
       <form className="flex flex-col items-center mt-36">
+
         <Image
           width="1200"
           objectFit="cover"
