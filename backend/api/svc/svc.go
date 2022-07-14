@@ -1,5 +1,7 @@
 package svc
 
+//a preferred response.
+
 type PreferredResponse struct {
 	Kind string `json:"kind"`
 	URL  struct {
