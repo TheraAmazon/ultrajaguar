@@ -34,6 +34,11 @@ export default function Header() {
               </Link>
             </li>
             <li>
+              <Link href="https://www.dchan.co/">
+                <a className="link">Dchan</a>
+              </Link>
+            </li>
+            <li>
               <Link href="https://amazonsaviors.com/">
                 <a className="link">Store</a>
               </Link>

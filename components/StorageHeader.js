@@ -24,7 +24,7 @@ export default function StorageHeader() {
           onClick={() => router.push('/')}
           width="500"
           objectFit="contain"
-          height="216"
+          height="140"
           className="cursor-pointer"
           src={UltraJaguar}
         />

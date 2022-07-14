@@ -48,9 +48,9 @@ export default function Home() {
 
       <form className="flex flex-col items-center mt-36">
         <Image
-          width="1200"
+          width="1080"
           objectFit="cover"
-          height="405"
+          height="303"
           src={UltraJaguar}
           alt="Teaching humanity and the animals"
         />
