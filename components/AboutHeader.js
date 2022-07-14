@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-export default function Header() {
+export default function AboutHeader() {
   const router = useRouter();
   return (
     <header className="flex justify-between p-5 text-sm text-gray-700 flex space-x-4">
       <div className="flex space-x-4 items-center">
-        <Link href="/about">
-          <a className="link">About</a>
+        <Link href="/">
+          <a className="link">Home</a>
         </Link>
         <Link href="https://store.google.com/">
           <a className="link">Store</a>
@@ -19,7 +19,7 @@ export default function Header() {
           </Link> */}
 
         <Link href="/crypto-storage">
-          <a className="flex space-x-4 items-center">Crypto Storage</a>
+          <a className="flex space-x-4 items-center">Crypto Jaguar</a>
         </Link>
       </div>
     </header>

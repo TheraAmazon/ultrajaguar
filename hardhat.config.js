@@ -4,10 +4,10 @@ const fs = require('fs');
  const infuraId = fs.readFileSync(".infuraid").toString().trim() || "";
 
 module.exports = {
-  defaultNetwork: "opx",
+  defaultNetwork: "hardhat",
   networks: {
     hardhat: {
-      chainId: 100
+      chainId: 1337
     },
     rinkeby: {
        url: "https://rinkeby.infura.io/v3/291697c1912845f4b55b544eebda4698",

@@ -20,7 +20,7 @@ export default function Search({ results }) {
   }
   return (
     <div>
-      <Head>
+      <Head className="flex w-full p-6 items-center">
         <title>{router.query.term} - Search page</title>
       </Head>
       {/* Search Header */}
@@ -32,6 +32,7 @@ export default function Search({ results }) {
 
 export async function getServerSideProps(context) {
   const startIndex = context.query.start || "1";
+
   const mockData = true;
   // const data = mockData
   //   ? Response
@@ -50,6 +51,19 @@ export async function getServerSideProps(context) {
   // );
   const data = Response;
   console.log(data);
+
+  //change to false to see 
+  const mockData = false;
+  const data = mockData
+    ? Response
+    : await fetch(
+        `https://www.googleapis.com/customsearch/v1?key=${
+          process.env.API_KEY
+        }&cx=${process.env.CONTEXT_KEY}&q=${context.query.term}${
+          context.query.searchType && "&searchType=image"
+        }&start=${startIndex}`
+      ).then((response) => response.json());
+
   return {
     props: {
       results: data,

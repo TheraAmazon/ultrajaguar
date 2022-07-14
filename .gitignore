@@ -2,7 +2,6 @@
 
 .secret
 .infuraid
-/scripts/deploy.js
 
 # dependencies
 /node_modules
@@ -32,6 +31,8 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.env.local
+.env
 
 # vercel
 .vercel
@@ -64,5 +65,4 @@ amplify-build-config.json
 amplify-gradle-config.json
 amplifytools.xcconfig
 .secret-*
-/contracts/
 #amplify-do-not-edit-end
