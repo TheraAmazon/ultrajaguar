@@ -44,6 +44,7 @@ export default function CreatorDashboard() {
         const meta = await axios.get(tokenUri);
         let item = {
           name: meta.data.name,
+          description: meta.data.description,
           tokenId: i.tokenId.toNumber(),
           seller: i.seller,
           owner: i.owner,
@@ -88,6 +89,9 @@ export default function CreatorDashboard() {
                   >
                     {nft.name}
                   </p>
+                  <div style={{ height: '120px', overflow: 'hidden' }}>
+                    <p className="text-gray-400">{nft.description}</p>
+                  </div>
                 </div>
               </div>
             ))}

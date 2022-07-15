@@ -137,7 +137,7 @@ export default function CreateItem() {
         </div>
         <button
           onClick={createMarket}
-          className="font-bold mt-4 bg-yellow-400 text-white rounded p-4 shadow-lg"
+          className="font-bold mt-4 bg-green-600 text-white rounded rounded p-4 shadow-lg"
         >
           Create Post
         </button>
